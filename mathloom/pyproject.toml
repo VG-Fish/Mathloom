@@ -21,7 +21,7 @@ test_sources = [
 ]
 
 requires = [
-    "manim_ai==0.3.1",
+    "manim_ai==0.3.7",
 ]
 test_requires = [
     "pytest",

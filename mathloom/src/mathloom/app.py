@@ -48,7 +48,7 @@ class Mathloom(toga.App):
         self.process_video_state()
 
         try:
-            await generate_video(self.animation_input.value)
+            await generate_video(self.animation_input.value, self.paths.data)
         except Exception as e:
             self.animation_label.text = f"Error: {e}."
         finally:
