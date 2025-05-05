@@ -21,13 +21,14 @@ test_sources = [
 ]
 
 requires = [
+    "manim_ai==0.3.1",
 ]
 test_requires = [
     "pytest",
 ]
 
 [tool.briefcase.app.mathloom.macOS]
-universal_build = true
+universal_build = false
 requires = [
     "toga-cocoa~=0.4.7",
     "std-nslog~=1.0.3",
