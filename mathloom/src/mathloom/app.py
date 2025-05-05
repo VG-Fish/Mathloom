@@ -45,17 +45,23 @@ class Mathloom(toga.App):
         self.main_window.show()
 
     async def create_video(self: Self, _) -> None:
-        self.animation_submit_button.enabled = False
-        self.animation_label.text = "Processing input..."
+        self.process_video_state()
 
         try:
             await generate_video(self.animation_input.value)
         except Exception as e:
             self.animation_label.text = f"Error: {e}."
         finally:
-            self.animation_submit_button.enabled = True
-            self.animation_label.text = self.animation_original_text
-            self.animation_label.text = ""
+            self.reset_state()
+        
+    def process_video_state(self: Self) -> None:
+        self.animation_submit_button.enabled = False
+        self.animation_label.text = "Processing input..."
+    
+    def reset_state(self: Self) -> None:
+        self.animation_submit_button.enabled = True
+        self.animation_label.text = self.animation_original_text
+        self.animation_input.value = ""
 
 
 def main() -> Mathloom:
